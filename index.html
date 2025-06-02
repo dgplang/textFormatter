@@ -14,17 +14,22 @@
     </div>
     <script>
         formatBtn = document.getElementById("formatBtn");
+        textInput = document.getElementById("textInput");
+        showHere = document.getElementById("showHere");
         formatBtn.addEventListener('click', (e) => {
-            preventDefault(e);
-            textInput = document.getElementById("textInput").val();
-            unOrderedList = document.createElement('ul');
-            list = document.createElement('li');
-            list.innerHTML = "<li><strong>" + textInput + "</strong></li>";
-            unOrderedList.appendChild(list);
-            list.innerHTML = "<li>" + strtoUpper(textInput) + "</li>";
-            unOrderedList.appendChild(list);
-            list.innerHTML = "<li style='background-color: red'" + textInput + "</li>";
-            unOrderedList.appendChild(list);
+            e.preventDefault();
+            inputText = textInput.value;
+            para1 = document.createElement('p');
+            para1.innerHTML = "<strong>" + inputText + "</strong>";
+            showHere.innerHTML = "";
+            showHere.appendChild(para1);
+            para2 = document.createElement('p');
+            para2.innerHTML = inputText.toUpperCase();
+            showHere.appendChild(para2);
+            para3 = document.createElement('p');
+            para3.innerHTML = inputText;
+            para3.style.backgroundColor = "red";
+            showHere.appendChild(para3);
             showHere.appendChild(unOrderedList);
         })
     </script>
