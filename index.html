@@ -13,8 +13,8 @@
     <div id="showHere" style="padding: 20px 300px; font-size: xx-large;">
     </div>
     <script>
-        formatBtn = document.getElementById(formatBtn);
-        formatBtn.addEventListener('click' (e) => {
+        formatBtn = document.getElementById("formatBtn");
+        formatBtn.addEventListener('click', (e) => {
             preventDefault(e);
             textInput = document.getElementById("textInput").val();
             unOrderedList = document.createElement('ul');
@@ -25,6 +25,7 @@
             unOrderedList.appendChild(list);
             list.innerHTML = "<li style='background-color: red'" + textInput + "</li>";
             unOrderedList.appendChild(list);
+            showHere.appendChild(unOrderedList);
         })
     </script>
 </body>
