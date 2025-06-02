@@ -4,34 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Formatter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .input-container {
+            margin-top: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        #textInput {
+            width: 100%;
+            height: 30px;
+            font-size: 16px;
+            border: solid 3px #0000008e;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+
+        #formatBtn {
+            margin-top: 15px;
+            padding: 8px 20px;
+            font-size: 18px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        #formatBtn:hover {
+            background-color: darkblue;
+        }
+
+        #showHere {
+            margin: 20px 10px;
+            font-size: 18px;
+            width: 90%;
+            max-width: 600px;
+            text-align: left; /* Changed from center to left */
+        }
+
+        #showHere p {
+            margin: 10px 0;
+            text-align: left; /* Ensure paragraphs are also left-aligned */
+        }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .input-container {
+                margin-top: 50px;
+            }
+
+            #textInput {
+                height: 35px;
+                font-size: 20px;
+            }
+
+            #formatBtn {
+                padding: 10px 30px;
+                font-size: 24px;
+                max-width: 300px;
+            }
+
+            #showHere {
+                font-size: 24px;
+                margin: 20px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <div style="margin-top: 50px; text-align: center;"><input id="textInput" type="text" style="width: 500px; height: 35px; border-radius: 5%; border: solid 3px #0000008e; "></div>
-        <div style="margin-top: 20px; text-align: center;"><button id="formatBtn" style="padding: 5px 10px; border-radius: 5%; font-size: x-large; background-color: blue; color: white;">Format</button></div>
+    <div class="input-container">
+        <input id="textInput" type="text" placeholder="Enter text here">
+        <button id="formatBtn">Format</button>
     </div>
-    <div id="showHere" style="padding: 20px 300px; font-size: xx-large;">
-    </div>
+    <div id="showHere"></div>
     <script>
-        formatBtn = document.getElementById("formatBtn");
-        textInput = document.getElementById("textInput");
-        showHere = document.getElementById("showHere");
+        const formatBtn = document.getElementById("formatBtn");
+        const textInput = document.getElementById("textInput");
+        const showHere = document.getElementById("showHere");
+
         formatBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            inputText = textInput.value;
-            para1 = document.createElement('p');
-            para1.innerHTML = "<strong>" + inputText + "</strong>";
-            showHere.innerHTML = "";
+            const inputText = textInput.value.trim();
+
+            if (!inputText) return; // Prevent empty input
+
+            showHere.innerHTML = ""; // Clear previous content
+
+            // Bold text
+            const para1 = document.createElement('p');
+            para1.innerHTML = `<strong>${inputText}</strong>`;
             showHere.appendChild(para1);
-            para2 = document.createElement('p');
+
+            // Uppercase text
+            const para2 = document.createElement('p');
             para2.innerHTML = inputText.toUpperCase();
             showHere.appendChild(para2);
-            para3 = document.createElement('p');
+
+            // Text with red background
+            const para3 = document.createElement('p');
             para3.innerHTML = inputText;
             para3.style.backgroundColor = "red";
             showHere.appendChild(para3);
-            showHere.appendChild(unOrderedList);
-        })
+        });
     </script>
 </body>
 </html>
