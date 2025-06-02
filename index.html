@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter</title>
+</head>
+<body>
+    <div>
+        <div style="margin-top: 50px; text-align: center;"><input id="textInput" type="text" style="width: 500px; height: 35px; border-radius: 5%; border: solid 3px #0000008e; "></div>
+        <div style="margin-top: 20px; text-align: center;"><button id="formatBtn" style="padding: 5px 10px; border-radius: 5%; font-size: x-large; background-color: blue; color: white;">Format</button></div>
+    </div>
+    <div id="showHere" style="padding: 20px 300px; font-size: xx-large;">
+    </div>
+    <script>
+        formatBtn = document.getElementById(formatBtn);
+        formatBtn.addEventListener('click' (e) => {
+            preventDefault(e);
+            textInput = document.getElementById("textInput").val();
+            unOrderedList = document.createElement('ul');
+            list = document.createElement('li');
+            list.innerHTML = "<li><strong>" + textInput + "</strong></li>";
+            unOrderedList.appendChild(list);
+            list.innerHTML = "<li>" + strtoUpper(textInput) + "</li>";
+            unOrderedList.appendChild(list);
+            list.innerHTML = "<li style='background-color: red'" + textInput + "</li>";
+            unOrderedList.appendChild(list);
+        })
+    </script>
+</body>
+</html>
